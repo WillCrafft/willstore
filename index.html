@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INFORMATION TENTANG WILL</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background video */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Overlay agar teks tetap terlihat */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        #preloader img {
+            width: 150px;
+            opacity: 0;
+            animation: fadeInOut 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-family: 'Minecraft', sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px black;
+            animation: fadeUp 1.5s ease-in-out;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+            animation: fadeUp 1.5s ease-in-out;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background-color 0.3s;
+            width: 80%;
+            max-width: 300px;
+            text-shadow: 3px 3px 5px black;
+        }
+
+        .menu a:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .menu a:active {
+            transform: scale(0.9);
+        }
+
+        p {
+            font-size: 18px;
+            text-shadow: 3px 3px 5px black;
+            animation: fadeUp 2s ease-in-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body onload="hidePreloader()">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="./background.mp4" type="video/mp4">
+            <source src="background.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Overlay untuk efek gelap -->
+    <div class="overlay"></div>
+
+    <!-- Konten Utama -->
+    <h1>INFORMATION TENTANG WILL</h1>
+    <div class="menu">
+        <a href="https://youtube.com/@willcraft11?si=Pe2ODzIXCFWUbmLs">YOUTUBE</a>
+        <a href="https://discord.gg/q9mGeDAZy8">DISCORD</a>
+        <a href="store.html">TOKO ONLINE</a>
+    </div>
+    <h1>Description Atau Informasi</h1>
+    <p>Saya WILL juga menyediakan toko online yang menjual beberapa kebutuhan seperti render 3D karakter Minecraft dan custom skin pribadi Minecraft kalian supaya lebih keren. Ingin mengetahui lebih lanjut? Silakan ke menu:</p>
+    <p><strong>TOKO ONLINE</strong></p>
+
+    <script>
+        function hidePreloader() {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 2000);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
